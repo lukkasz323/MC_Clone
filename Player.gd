@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 
-var gravity = 10
-var speed = 5.0
-var jump_velocity = 4.5
+var gravity = 20
+var speed = 5
+var jump_velocity = 5
 var mouse_sens = 0.006
 
 

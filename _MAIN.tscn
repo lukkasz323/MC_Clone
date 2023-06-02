@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dblg6tu25rtfw"]
+[gd_scene load_steps=7 format=3 uid="uid://dblg6tu25rtfw"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_35cfx"]
 [ext_resource type="Texture2D" uid="uid://c8xud112grb6i" path="res://icon.svg" id="1_h37jj"]
 [ext_resource type="Script" path="res://DebugLabel.gd" id="3_yd0kx"]
-[ext_resource type="PackedScene" uid="uid://sihx1oxkoupm" path="res://block.tscn" id="4_xdwpf"]
-[ext_resource type="Script" path="res://Chunk.gd" id="4_yxrk3"]
+[ext_resource type="Script" path="res://Terrain.gd" id="4_5qat5"]
 
 [sub_resource type="Environment" id="Environment_adomp"]
 
@@ -25,8 +24,12 @@ environment = SubResource("Environment_adomp")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.34202, 0.883022, -0.321394, 0, 0.34202, 0.939693, 0.939693, -0.321394, 0.116978, 0, 0, 0)
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268943, 1.58436, -3.53217)
+texture = ExtResource("1_h37jj")
+
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39372, 1, 5.43268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_35cfx")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -40,12 +43,5 @@ target_position = Vector3(0, 0, -5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CylinderShape3D_0bncc")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268943, 1.58436, -3.53217)
-texture = ExtResource("1_h37jj")
-
-[node name="Chunk" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.5, 0.5)
-script = ExtResource("4_yxrk3")
-
-[node name="Block" parent="Chunk" instance=ExtResource("4_xdwpf")]
+[node name="Terrain" type="Node3D" parent="."]
+script = ExtResource("4_5qat5")
