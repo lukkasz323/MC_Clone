@@ -10,6 +10,6 @@ func _ready():
 	for x in size:
 		for z in size:
 			var chunk = packed_chunk.instantiate()
-			chunk.position.x += x * (chunk.size + 1)
-			chunk.position.z += z * (chunk.size + 1)
+			chunk.position.x += x * chunk.size
+			chunk.position.z += z * chunk.size
 			add_child(chunk)
